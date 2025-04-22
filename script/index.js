@@ -1,3 +1,13 @@
+// ShowLoder
+const showLoder =() =>{
+    document.getElementById('loder').classList.remove('hidden');
+    document.getElementById('video-container').classList.add('hidden');
+}
+const hideLoder =() =>{
+    document.getElementById('loder').classList.add('hidden');
+    document.getElementById('video-container').classList.remove('hidden');
+}
+
 // Api Call kora hoilo ebong Array Of OBject porjonto pailam  step----1
 function loadCategory() {
     fetch('https://openapi.programming-hero.com/api/phero-tube/categories')
@@ -60,6 +70,7 @@ function displayCategory(categoris){
 // Arekta Api ke call korbo r Videos Gulake niy ane UI te Dekhabo  step 1 er second part <-------------
 // Arrow Function diye korar try kori pai ki na 
 const loadVideos =(searchText = "")=>{
+    showLoder();
     fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
     .then(res=>res.json())
     .then(data=>{
@@ -70,6 +81,7 @@ const loadVideos =(searchText = "")=>{
     // Api Call kore Array Of Object pailam
 }
  const loadVideoDetails = (videoId) =>{
+   
 // console.log(videoId);
 // Video Id gula dhore ekta link ke fetch korbo jaye link er sese dynamic vabe id gula oathate pari
 const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`;
@@ -164,10 +176,11 @@ const displayVideos = (vidos) =>{
             </div>
 
               </div>
-              <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-block">Details</button>
+              <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-block hover:bg-emerald-500">Details</button>
             </div>
         `
         videoContainer.append(videoCard);
+        hideLoder();
     });
     
 }
@@ -180,3 +193,4 @@ document.getElementById('search-input').addEventListener('keyup',(e)=>{
 
 
 loadCategory();
+loadVideos();
