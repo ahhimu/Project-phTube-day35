@@ -2,7 +2,7 @@
 
 </p>
 <p align="center" style="font-size: 24px;">
-  PH Tube is a web-based video streaming application where users can browse and watch videos sorted by categories such as music, comedy, and tutorials.
+  PH Tube is a web-based video streaming application where users can browse and watch videos sorted by categories such as music, comedy, and tutorials. Actually Video means thumbnail and it dosen't play Just Work with it . :P 
 </p>
 
 <hr/>
